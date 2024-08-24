@@ -8,28 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import config.Conexion;
+import dao.ILibroDao;
 import models.Autor;
 import models.Categoria;
 import models.Editorial;
-import models.Idiomas;
-import models.Libros;
-import models.SubGenero;
+import models.Idioma;
+import models.Libro;
+import models.Subgenero;
 
 
 
-public class LibroDaoImpl {
+public class LibroDaoImpl implements ILibroDao{
 
 	
-public List<Libros>Listar(){
+public List<Libro>getLibros(){
 		Connection cn = null;
-		List<Libros> libros = null;
+		List<Libro> libros = null;
 		try {
-			cn=Conexion.getConnection();
+			cn = Conexion.getConnection();
 			String sql = "SELECT libro_id, serial_number, nombre, id_autor, año, id_idioma, id_editorial, id_categoria, id_subgenero, unidades, cant_paginas, imagen_url FROM Libros";
 			PreparedStatement psmt = cn.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
 			
-			libros= new ArrayList();
+			libros = new ArrayList<Libro>();
 			while(rs.next()) {
 				libros.add(ResultSetToObject(rs));
 			}
@@ -54,9 +55,9 @@ public List<Libros>Listar(){
 		return libros;
 	
 	}
-    private Libros ResultSetToObject(ResultSet rs ) throws SQLException{
-    	Libros libros = new Libros();
-    	libros.setIdLibro(rs.getInt("libro_id"));
+    private Libro ResultSetToObject(ResultSet rs ) throws SQLException{
+    	Libro libros = new Libro();
+    	libros.setLibroId(rs.getInt("libro_id"));
     	libros.setSerialNumber(rs.getString("serial_number"));
     	libros.setNombre(rs.getString("nombre"));
         
@@ -64,31 +65,31 @@ public List<Libros>Listar(){
     	// autor
     	
     	Autor autor = new Autor();
-    	autor.setIdAutores(rs.getInt("id_autor"));
+    	autor.setAutorId(rs.getInt("id_autor"));
     	libros.setAutor(autor);
     	
     	//Idioma 
     	
-    	Idiomas idioma = new  Idiomas();
-    	idioma.setIdIdiomas(rs.getInt("id_idioma"));
+    	Idioma idioma = new  Idioma();
+    	idioma.setIdiomaId(rs.getInt("id_idioma"));
     	libros.setIdioma(idioma);
     	
     	// Editorial 
     	
     	Editorial editorial = new Editorial();
-    	editorial.setIdEditorial(rs.getInt("id_editorial"));
+    	editorial.setEditorialId(rs.getInt("id_editorial"));
     	libros.setEditorial(editorial);
     	
     	// Categoria 
     	
     	Categoria categoria = new Categoria();
-    	categoria.setIdCategoria(rs.getInt("id_categoria"));
+    	categoria.setCategoriaId(rs.getInt("id_categoria"));
     	libros.setCategoria(categoria);
     	
     	// SubGenero
     	
-    	SubGenero subgenero = new SubGenero();
-    	subgenero.setIdSubGenero(rs.getInt("id_subgenero"));
+    	Subgenero subgenero = new Subgenero();
+    	subgenero.setSubgeneroId(rs.getInt("id_subgenero"));
     	libros.setSubGenero(subgenero);
     	
     	libros.setAnio(rs.getInt("año"));
@@ -102,4 +103,19 @@ public List<Libros>Listar(){
     	
     	
     }
+	@Override
+	public void addLibro() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void editLibro() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Libro getLibroBySerial() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

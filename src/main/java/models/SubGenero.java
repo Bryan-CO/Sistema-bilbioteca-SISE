@@ -1,14 +1,14 @@
 package models;
 
-public class SubGenero {
+public class Subgenero {
 	
-	private Integer idSubGenero;
+	private Integer subgeneroId;
 	private String subgenero;
-	public Integer getIdSubGenero() {
-		return idSubGenero;
+	public Integer getSubgeneroId() {
+		return this.subgeneroId;
 	}
-	public void setIdSubGenero(Integer idSubGenero) {
-		this.idSubGenero = idSubGenero;
+	public void setSubgeneroId(Integer subgeneroId) {
+		this.subgeneroId = subgeneroId;
 	}
 	public String getSubgenero() {
 		return subgenero;
@@ -16,7 +16,4 @@ public class SubGenero {
 	public void setSubgenero(String subgenero) {
 		this.subgenero = subgenero;
 	}
-	
-	
-
 }

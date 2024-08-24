@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@page import="models.Libros"%>
+<%@page import="models.Libro"%>
 <%@page import="java.util.List"%>
 <html>
 <head>
@@ -18,10 +18,10 @@
    <h2 class="col-md-4 center">Listado de Catalogos</h2>
    <div class="row">
      <%
-   List<Libros> listarLibros = (List<Libros>) request.getAttribute("libros");
-   if(listarLibros != null && !listarLibros.isEmpty()){
-       for(Libros libro : listarLibros){
-           %>
+     List<Libro> listarLibros = (List<Libro>) request.getAttribute("libros");
+        if(listarLibros != null && !listarLibros.isEmpty()){
+            for(Libro libro : listarLibros){
+     %>
            <div class="col-md-4 mt-4">
             <a  href="/Biblioteca/libros/<%= libro.getNombre()%>">
                <div class="card">

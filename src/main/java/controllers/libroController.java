@@ -7,10 +7,10 @@ import dao.impl.LibroDaoImpl;
 import interfaces.Controller;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import models.Libros;
+import models.Libro;
 public class libroController{
 	public static Controller getAll = (req, res) -> {
-	    List<Libros> libros = new LibroDaoImpl().Listar(); // Fetch books from DAO
+	    List<Libro> libros = new LibroDaoImpl().getLibros(); // Fetch books from DAO
 	    req.setAttribute("libros", libros); // Set attribute for JSP
 
 	    RequestDispatcher rq = req.getRequestDispatcher("/views/libros.jsp");

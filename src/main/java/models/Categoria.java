@@ -2,14 +2,14 @@ package models;
 
 public class Categoria {
 
-	private Integer idCategoria;
+	private Integer categoriaId;
 	private String categoria;
 	
-	public Integer getIdCategoria() {
-		return idCategoria;
+	public Integer getCategoriaId() {
+		return this.categoriaId;
 	}
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setCategoriaId(Integer categoriaId) {
+		this.categoriaId = categoriaId;
 	}
 	public String getCategoria() {
 		return categoria;

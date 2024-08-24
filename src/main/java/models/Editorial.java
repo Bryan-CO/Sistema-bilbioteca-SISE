@@ -1,14 +1,14 @@
 package models;
 
 public class Editorial {
-  private Integer idEditorial;
+  private Integer editorialId;
   private String editorial;
   
-public Integer getIdEditorial() {
-	return idEditorial;
+public Integer getEditorialId() {
+	return this.editorialId;
 }
-public void setIdEditorial(Integer idEditorial) {
-	this.idEditorial = idEditorial;
+public void setEditorialId(Integer editorialId) {
+	this.editorialId = editorialId;
 }
 public String getEditorial() {
 	return editorial;
