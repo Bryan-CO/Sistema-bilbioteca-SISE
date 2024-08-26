@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AddLibroServlet</display-name>
+    <servlet-name>AddLibroServlet</servlet-name>
+    <servlet-class>servlets.AddLibroServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddLibroServlet</servlet-name>
+    <url-pattern>/AddLibroServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

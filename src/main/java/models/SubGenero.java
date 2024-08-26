@@ -1,6 +1,6 @@
 package models;
 
-public class Subgenero {
+public class SubGenero {
 	
 	private Integer subgeneroId;
 	private String subgenero;

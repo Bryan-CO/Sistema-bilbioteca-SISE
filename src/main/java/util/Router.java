@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+
 import interfaces.Controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,7 +24,7 @@ public class Router {
 		this.request = request;
 		this.response = response;
 	}
-
+	
 	
 	public void get(String ruta, Controller controller) {
 		if(request.getMethod().equals("GET") && isRouteMatching(ruta)) {
@@ -34,12 +35,21 @@ public class Router {
 	
 	public void post(String ruta, Controller controller) {
 		if(request.getMethod().equals("POST") && isRouteMatching(ruta)) {
-			controller.execute(request, response);
-		}
+	        controller.execute(request, response);
+	    }
+	}
+	public void put(String ruta, Controller controller) {
+	    if ((request.getMethod().equals("POST") && "PUT".equalsIgnoreCase(request.getParameter("_method")))
+	        || request.getMethod().equals("PUT")) {
+	        if (isRouteMatching(ruta)) {
+	            controller.execute(request, response);
+	        }
+	    }
 	}
 	
+	
+	
 	private boolean isRouteMatching(String ruta) {
-		System.out.println(request.getPathInfo());
 		// Obtengo la ruta ya formateada
 		String route = formatRoute();
 		
@@ -115,15 +125,12 @@ public class Router {
 		});
 	}
 	
-	private void setRequestAttributes(Map<Integer, String> mapParameters, List<String> subReqRoute) {
-		mapParameters.forEach((index, element)->{
-			// El prefijo puede cambiar a gusto propio
-			String nameParam = PREFIX_PARAMETER + element.substring(1, 2).toUpperCase() + element.substring(2).toLowerCase();
-			
-			String valueParam = subReqRoute.get(index);				
-			
-			this.request.setAttribute(nameParam, valueParam);
-		});
+	 private void setRequestAttributes(Map<Integer, String> mapParameters, List<String> subReqRoute) {
+	        mapParameters.forEach((index, element) -> {
+	            String nameParam = PREFIX_PARAMETER + element.substring(1).replaceAll(":", "").toUpperCase();
+	            String valueParam = subReqRoute.get(index);
+	            this.request.setAttribute(nameParam, valueParam);
+	        });
 	}
 	
 }

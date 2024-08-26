@@ -9,8 +9,8 @@ import models.Libro;
 public interface ILibroDao {
 
 		public List<Libro>getLibros();
-		public void addLibro();
-		public void editLibro();
+		public void addLibro(Libro libro);
+		public void editLibro(Libro libro);
 		public Libro getLibroBySerial();		 
 	}
 
