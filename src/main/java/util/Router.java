@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-
 import interfaces.Controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 
 public class Router {
 	public HttpServletRequest request;

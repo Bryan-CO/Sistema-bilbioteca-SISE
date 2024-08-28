@@ -1,64 +1,50 @@
 <!DOCTYPE html>
-<%@ page import="models.Libro" %>
+<%@page import="models.Autor"%>
+<%@page import="java.util.List"%>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Editar Libro</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
+    <title>Autores</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
 </head>
-<body>
-    <h1>Editar Libro</h1>
 
-    <form action="${pageContext.request.contextPath}/edit" method="post">
-        <!-- Hidden field to spoof the PUT method -->
-        <input type="hidden" name="_method" value="PUT">
-        
-        <input type="hidden" name="id" value="${libro.idLibro}">
+<body style="background-color: #fff">
+  <div class="container mt-5">
+    <h2 class="col-md-4 center">Listado de Autores</h2>
+    <div class="row">
+      <%
+      List<Autor> listarAutor = (List<Autor>) request.getAttribute("autor");
+      if (listarAutor != null && !listarAutor.isEmpty()) {
+          for (Autor autor : listarAutor) {
+      %>
+        <div class="col-md-4 mt-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">Autor: <%= autor.getAutor() %></p>
+            </div>
+          </div>
+        </div>
+      <%
+          }
+      } else {
+      %>
+        <div class="col">
+          <p>No se encontraron autores.</p>
+        </div>
+      <%
+      }
+      %>
+    </div>
+  </div>
 
-        <label for="txtSerialNumber">Número de Serie:</label>
-        <input type="text" id="txtSerialNumber" name="txtSerialNumber" value="${libro.serialNumber}" required>
-        <br><br>
+  <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN60jIeHz"
+      crossorigin="anonymous"></script>
 
-        <label for="txtNombre">Nombre:</label>
-        <input type="text" id="txtNombre" name="txtNombre" value="${libro.nombre}" required>
-        <br><br>
-
-        <label for="txtAño">Año:</label>
-        <input type="text" id="txtAño" name="txtAño" value="${libro.anio}" required>
-        <br><br>
-
-        <label for="txtIdAutor">ID del Autor:</label>
-        <input type="text" id="txtIdAutor" name="txtIdAutor" value="${libro.autor.autorId}" required>
-        <br><br>
-
-        <label for="txtIdIdioma">ID del Idioma:</label>
-        <input type="text" id="txtIdIdioma" name="txtIdIdioma" value="${libro.idioma.idiomaId}" required>
-        <br><br>
-
-        <label for="txtIdEditorial">ID de la Editorial:</label>
-        <input type="text" id="txtIdEditorial" name="txtIdEditorial" value="${libro.editorial.editorialId}" required>
-        <br><br>
-
-        <label for="txtIdCategoria">ID de la Categoría:</label>
-        <input type="text" id="txtIdCategoria" name="txtIdCategoria" value="${libro.categoria.categoriaId}" required>
-        <br><br>
-
-        <label for="txtIdSubgenero">ID del Subgénero:</label>
-        <input type="text" id="txtIdSubgenero" name="txtIdSubgenero" value="${libro.subGenero.subgeneroId}" required>
-        <br><br>
-
-        <label for="txtUnidades">Unidades:</label>
-        <input type="text" id="txtUnidades" name="txtUnidades" value="${libro.unidades}" required>
-        <br><br>
-
-        <label for="txtCantPaginas">Cantidad de Páginas:</label>
-        <input type="text" id="txtCantPaginas" name="txtCantPaginas" value="${libro.cantidadPaginas}" required>
-        <br><br>
-
-        <input type="submit" value="Actualizar Libro">
-    </form>
-
-    <a href="${pageContext.request.contextPath}/libros">Volver a la lista de libros</a>
 </body>
 </html>
 

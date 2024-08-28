@@ -2,14 +2,8 @@ package controllers;
 
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import java.util.List;
 
-import config.Conexion;
-import dao.ILibroDao;
 import dao.impl.LibroDaoImpl;
 import interfaces.Controller;
 import jakarta.servlet.RequestDispatcher;

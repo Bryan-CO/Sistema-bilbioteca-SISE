@@ -1,15 +1,15 @@
 package servlets;
 
+import java.io.IOException;
+
+import controllers.autorController;
+import controllers.libroController;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import util.*;
-
-import java.io.IOException;
-
-import controllers.libroController;
+import util.Router;
 
 /**
  * Servlet implementation class ServletPrueba
@@ -32,13 +32,18 @@ public class ServletPrueba extends HttpServlet {
     	
         router.get("/", libroController.getAll);
         router.get("/libros", libroController.getAll);
-        router.get("/oli/:id", libroController.getAll);
         router.post("/oli", libroController.addLibro);
         router.get("/oli/:id", libroController.getById);
         router.get("/edit/:id", libroController.getLibroForEdit); // Cargar el libro para editar
         router.put("/edit", libroController.editLibro); 
      // Rutas para API
         router.get("/api/libros", libroController.getAllApi);
+        
+        
+        // autor
+        router.get("/,", autorController.getAll);
+        router.get("/autor", autorController.getAll);
+        router.get("/oli",autorController.addAutor);
     }
 
 }
