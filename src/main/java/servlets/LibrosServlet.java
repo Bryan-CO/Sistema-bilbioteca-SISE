@@ -28,14 +28,6 @@ public class LibrosServlet extends HttpServlet {
     	
     	router.get("/", libroController.getAll);
     	
-        //router.get("/", libroController.getAll);
-        //router.get("/libros", libroController.getAll);
-        //router.get("/oli/:id", libroController.getAll);
-        //router.post("/oli", libroController.addLibro);
-        //router.get("/oli/:id", libroController.getById);
-        //router.get("/edit/:id", libroController.getLibroForEdit); // Cargar el libro para editar
-        //router.put("/edit", libroController.editLibro); 
-     // Rutas para API
-        //router.get("/api/libros", libroController.getAllApi);
+        router.get("/:id", libroController.getLibroForEdit);
     }
 }

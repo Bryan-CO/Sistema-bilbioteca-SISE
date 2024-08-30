@@ -13,7 +13,7 @@ SELECT * FROM getAutores();
 
 // AGREGAR AUTOR
 
-CREATE OR REPLACE FUNCTION añadir_autor(autor VARCHAR)
+CREATE OR REPLACE FUNCTION addAutor(autor VARCHAR)
 RETURNS VOID
 LANGUAGE plpgsql
 AS $$
@@ -22,23 +22,25 @@ BEGIN
     VALUES (autor);
 END;
 $$;
-SELECT añadir_autor('Mario Vargas Llosa');
+SELECT addAutor('Mario Vargas Llosa');
 
 
 
 // AGREGAR LIBRO
 
-CREATE OR REPLACE FUNCTION public."añadir_libro"(
+CREATE OR REPLACE FUNCTION public."addLibro"(
 	serial_number character varying,
 	nombre character varying,
 	id_autor integer,
-	"año" integer,
+	anio integer,
 	id_idioma integer,
 	id_editorial integer,
 	id_categoria integer,
 	id_subgenero integer,
 	unidades integer,
-	cant_paginas integer)
+	cant_paginas integer,
+	imagen_url text
+)
     RETURNS void
     LANGUAGE 'plpgsql'
     COST 100
@@ -49,42 +51,46 @@ BEGIN
         serial_number,
         nombre,
         id_autor,
-        año,
+        anio,
         id_idioma,
         id_editorial,
         id_categoria,
         id_subgenero,
         unidades,
-        cant_paginas
+        cant_paginas,
+        imagen_url
     ) VALUES (
         serial_number,
         nombre,
         id_autor,
-        año,
+        anio,
         id_idioma,
         id_editorial,
         id_categoria,
         id_subgenero,
         unidades,
-        cant_paginas
+        cant_paginas,
+        imagen_url
     );
 END;
 $BODY$;
 
 // EDITAR LIBRO
 
-CREATE OR REPLACE FUNCTION public.editar_libro(
+CREATE OR REPLACE FUNCTION public.editLibro(
 	p_id_libro integer,
 	p_serial_number character varying,
 	p_nombre character varying,
 	p_id_autor integer,
-	"p_año" integer,
+	p_anio integer,
 	p_id_idioma integer,
 	p_id_editorial integer,
 	p_id_categoria integer,
 	p_id_subgenero integer,
 	p_unidades integer,
-	p_cant_paginas integer)
+	p_cant_paginas integer,
+	p_imagen_url text
+)
     RETURNS void
     LANGUAGE 'plpgsql'
     COST 100
@@ -96,13 +102,14 @@ BEGIN
         serial_number = p_serial_number,
         nombre = p_nombre,
         id_autor = p_id_autor,
-        año = p_año,
+        anio = p_anio,
         id_idioma = p_id_idioma,
         id_editorial = p_id_editorial,
         id_categoria = p_id_categoria,
         id_subgenero = p_id_subgenero,
         unidades = p_unidades,
-        cant_paginas = p_cant_paginas
+        cant_paginas = p_cant_paginas,
+        imagen_url = p_imagen_url
     WHERE libro_id = p_id_libro;
 END;
 $BODY$;
@@ -111,7 +118,7 @@ $BODY$;
 
 CREATE OR REPLACE FUNCTION public.getlibros(
 	)
-    RETURNS TABLE(libro_id integer, serial_number character varying, nombre character varying, autor character varying, "año" integer, idioma character varying, editorial character varying, categoria character varying, subgenero character varying, unidades integer, cant_paginas integer,imagen_url text)
+    RETURNS TABLE(libro_id integer, serial_number character varying, nombre character varying, autor character varying, anio integer, idioma character varying, editorial character varying, categoria character varying, subgenero character varying, unidades integer, cant_paginas integer,imagen_url text)
     LANGUAGE 'plpgsql'
     COST 100
     VOLATILE PARALLEL UNSAFE
@@ -125,7 +132,7 @@ BEGIN
         l.serial_number,
         l.nombre,
         a.autor,
-        l.año,
+        l.anio,
         i.idioma,
         e.editorial,
         c.categoria,
