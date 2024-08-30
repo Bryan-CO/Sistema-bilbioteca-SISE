@@ -46,6 +46,7 @@ CREATE TABLE Libros (
     id_subgenero INT NOT NULL REFERENCES Subgeneros(subgenero_id),
     unidades INT NOT NULL,
     cant_paginas INT NOT NULL
+    imagen_url text
 );
 
 -- Crear tabla de Clientes
