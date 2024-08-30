@@ -1,32 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<body>
-   
-<div class="container mt-5">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <!-- <link href="style.css" rel="stylesheet" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: 'hsl(217, 71%, 53%)',
+              secondary: 'hsl(48, 100%, 67%)',
+            },
+          },
+        },
+      }
+    </script>
+  </head>
 
-		<h1 class="fw-light text-center ">Bienvenido al Sistema para
-
-			Restaurantes</h1>
-
-		<h2 class="text-center fw-bold">Tengo Hambre's</h2>
-
-		<div class="row mt-4">
-
-			<div class="col text-center">
-
-				<a href="biblioteca" class="btn btn-primary">Ver Biblioteca</a>
-
-			</div>
-
-		</div>
-
-	</div>
-	<button onclick="verImagenesAleatorios()">Ver Imagen Aleatoria</button>
- 
-</body>
+  <body
+    class="w-screen min-h-screen flex justify-center items-center bg-primary"
+  >
+    <main
+      class="flex justify-center items-center bg-white w-4/5 h-4/6 rounded-3xl px-4"
+    >
+      <section class="w-2/6 flex justify-center items-center flex-col gap-8">
+        <h1 class="text-6xl font-extrabold text-center">
+          Bienvenidos<br />a la biblioteca
+        </h1>
+        <p class="text-4xl text-center font-normal">
+          "Sumerjete en el oceano de los<br />libros"
+        </p>
+        <a
+          href="views/principal.jsp"
+          class="bg-secondary px-5 py-2 font-semibold rounded-xl text-xl"
+          >buton</a
+        >
+      </section>
+      <picture class="w-2/4 h-[760px] flex justify-center items-center">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/016/139/680/non_2x/book-library-icon-in-comic-style-encyclopedia-cartoon-illustration-on-white-isolated-background-dictionary-splash-effect-sign-business-concept-vector.jpg"
+          alt="Libros"
+          class="w-4/6"
+        />
+      </picture>
+    </main>
+  </body>
 </html>

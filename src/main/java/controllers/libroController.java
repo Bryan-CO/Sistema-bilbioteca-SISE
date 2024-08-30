@@ -57,6 +57,7 @@ public class libroController{
 	        int idSubgenero = Integer.parseInt(req.getParameter("txtIdSubgenero"));
 	        int unidades = Integer.parseInt(req.getParameter("txtUnidades"));
 	        int cantPaginas = Integer.parseInt(req.getParameter("txtCantPaginas"));
+	        String imagenUrl = req.getParameter("txtImagenUrl");
 
 	        libro.setSerialNumber(serialNumber);
 	        libro.setNombre(nombre);
@@ -84,6 +85,7 @@ public class libroController{
 	        libro.setAnio(año);
 	        libro.setUnidades(unidades);
 	        libro.setCantidadPaginas(cantPaginas);
+	        libro.setImagenUrl(imagenUrl);
 
 	        LibroDaoImpl libroDao = new LibroDaoImpl();
 	        libroDao.addLibro(libro);

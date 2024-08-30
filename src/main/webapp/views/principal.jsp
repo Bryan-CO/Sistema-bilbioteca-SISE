@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
+    <link href="styles/sidebar.css" rel="stylesheet" />
     <link href="styles/principal.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
@@ -17,7 +18,7 @@
     />
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -29,7 +30,7 @@
           },
         },
       }
-    </script>
+    </script> -->
   </head>
 
   <body class="">

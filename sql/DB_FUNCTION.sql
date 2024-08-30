@@ -131,7 +131,7 @@ BEGIN
         c.categoria,
         s.subgenero,
         l.unidades,
-        l.cant_paginas
+        l.cant_paginas,
         l.imagen_url
     FROM
         Libros l
