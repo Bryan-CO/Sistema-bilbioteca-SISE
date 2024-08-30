@@ -8,6 +8,7 @@ import dao.impl.AutorDaoImpl;
 import interfaces.Controller;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletResponse;
 import models.Autor;
 
 
@@ -23,34 +24,39 @@ public class autorController {
         }
 	};
 	
-	public static Controller getById = (req, res) -> {
-		RequestDispatcher rq = req.getRequestDispatcher("/views/libros.jsp");
-		try {
-			rq.forward(req, res);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		System.out.println("Get by ID");
-	};
+	 
 	
 	public static Controller addAutor= (req ,res)->{
-		try {
-			Autor autor = new Autor();
-			String autores = req.getParameter("txtAutor");
-			
-			autor.setAutor(autores);
-			
-			AutorDaoImpl autorDao = new AutorDaoImpl();
-			autorDao.addAutor(autor);
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	};
+	     try {
+	            
+	            String autorNombre = req.getParameter("txtAutor");
+
+	            if (autorNombre != null && !autorNombre.trim().isEmpty()) {
+	               
+	                Autor autor = new Autor();
+	                autor.setAutor(autorNombre);
+
+	          
+	                AutorDaoImpl autorDao = new AutorDaoImpl();
+	                autorDao.addAutor(autor);
+
+	             
+	                res.sendRedirect(req.getContextPath() + "/biblioteca/autor");
+	            } else {
+	             
+	                res.sendError(HttpServletResponse.SC_BAD_REQUEST, "Nombre del autor no puede estar vacío");
+	            }
+	        } catch (Exception e) {
+	         
+	            e.printStackTrace(); 
+	            try {
+					res.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al agregar el autor");
+				} catch (IOException e1) {
+				
+					e1.printStackTrace();
+				}
+	        }
+	    };
 }
 	
 
