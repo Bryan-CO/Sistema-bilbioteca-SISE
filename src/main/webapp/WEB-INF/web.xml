@@ -21,12 +21,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>AddLibroServlet</display-name>
-    <servlet-name>AddLibroServlet</servlet-name>
-    <servlet-class>servlets.AddLibroServlet</servlet-class>
+    <display-name>LibrosServlet</display-name>
+    <servlet-name>LibrosServlet</servlet-name>
+    <servlet-class>servlets.LibrosServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AddLibroServlet</servlet-name>
-    <url-pattern>/AddLibroServlet</url-pattern>
+    <servlet-name>LibrosServlet</servlet-name>
+    <url-pattern>/libros/*</url-pattern>
   </servlet-mapping>
 </web-app>
