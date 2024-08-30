@@ -1,5 +1,10 @@
 package dao;
 
+import java.util.List;
+
+import models.Idioma;
+
 public interface IIdiomaDao {
-	public void addIdioma();
+	public List<Idioma>getIdioma();
+	 void addIdioma(Idioma idioma);
 }

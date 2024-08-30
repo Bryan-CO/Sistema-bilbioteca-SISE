@@ -3,6 +3,8 @@ package servlets;
 import java.io.IOException;
 
 import controllers.autorController;
+import controllers.categoriaController;
+import controllers.idiomaController;
 import controllers.libroController;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -41,9 +43,18 @@ public class ServletPrueba extends HttpServlet {
         
         
         // autor
-        router.get("/,", autorController.getAll);
-        router.get("/autor", autorController.getAll);
-        router.get("/oli",autorController.addAutor);
+       
+        router.get("/autor", autorController.getAll); // Obtener todos los autores
+        router.post("/autor", autorController.addAutor);
+        
+        // idioma 
+        
+        router.get("/idioma",idiomaController.getAll);
+        router.post("/idioma", idiomaController.addIdioma);
+        
+        //categoria
+        router.get("/categoria",categoriaController.getAll);
+        
     }
 
 }

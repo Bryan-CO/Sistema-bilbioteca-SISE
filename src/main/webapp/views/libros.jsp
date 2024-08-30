@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<%@page import="models.Autor"%>
+<%@page import="models.Categoria"%>
 <%@page import="java.util.List"%>
 <html>
 <head>
-    <title>Autores</title>
+    <title>Listado de Categoria</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -12,18 +12,19 @@
 </head>
 
 <body style="background-color: #fff">
+<body style="background-color: #fff">
   <div class="container mt-5">
-    <h2 class="col-md-4 center">Listado de Autores</h2>
+    <h2 class="col-md-4 center">Listado de Categoria</h2>
     <div class="row">
       <%
-      List<Autor> listarAutor = (List<Autor>) request.getAttribute("autor");
-      if (listarAutor != null && !listarAutor.isEmpty()) {
-          for (Autor autor : listarAutor) {
+      List<Categoria> listarCategoria = (List<Categoria>) request.getAttribute("categoria");
+      if (listarCategoria != null && !listarCategoria.isEmpty()) {
+          for (Categoria categoria : listarCategoria) {
       %>
         <div class="col-md-4 mt-4">
           <div class="card">
             <div class="card-body">
-              <p class="card-text">Autor: <%= autor.getAutor() %></p>
+              <p class="card-text">categoria: <%= categoria.getCategoria() %></p>
             </div>
           </div>
         </div>
@@ -39,6 +40,7 @@
       %>
     </div>
   </div>
+
 
   <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
