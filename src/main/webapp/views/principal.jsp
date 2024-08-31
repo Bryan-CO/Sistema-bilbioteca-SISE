@@ -41,23 +41,23 @@
     </label>
     <div class="sidebar">
       <header>Menu</header>
-      <a href="principal.html" class="active">
+      <a href="${pageContext.request.contextPath}/views/principal.jsp" class="active">
         <i data-feather="home"></i>
         <span>Principal</span>
       </a>
-      <a href="libros.html">
+      <a href="${pageContext.request.contextPath}/libros/">
         <i data-feather="book"></i>
         <span>Libros</span>
       </a>
-      <a href="herramientas.html">
+      <a href="#">
         <i data-feather="tool"></i>
         <span>Herramientas</span>
       </a>
-      <a href="clientes.html">
+      <a href="#">
         <i data-feather="users"></i>
         <span>Clientes</span>
       </a>
-      <a href="prestamos.html">
+      <a href="#">
         <i data-feather="dollar-sign"></i>
         <span>Prestamos</span>
       </a>
