@@ -9,7 +9,7 @@ public class Libro {
 	private Idioma idioma;
 	private Editorial editorial;
 	private Categoria categoria;
-	private SubGenero subGenero;
+	private Subgenero subGenero;
 	private Integer unidades;
 	private Integer cantidadPaginas;
 	private String imagenUrl;
@@ -62,10 +62,10 @@ public class Libro {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	public SubGenero getSubGenero() {
+	public Subgenero getSubGenero() {
 		return subGenero;
 	}
-	public void setSubGenero(SubGenero subGenero) {
+	public void setSubGenero(Subgenero subGenero) {
 		this.subGenero = subGenero;
 	}
 	public Integer getUnidades() {

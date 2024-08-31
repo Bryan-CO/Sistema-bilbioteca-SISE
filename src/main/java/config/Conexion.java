@@ -11,12 +11,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class Conexion {
 
 	private final static String DRIVER_CLASS_NAME ="org.postgresql.Driver";
-	private final static String URL ="jdbc:postgresql://localhost/sistema_biblioteca";
-	private final static String USERNAME="postgres";
-	private final static String PASSWORD="godofwar12345";
 	
 	
 	private Conexion() {
@@ -29,7 +28,9 @@ public class Conexion {
 		Connection cn = null;
 		try {
 			Class.forName(DRIVER_CLASS_NAME).newInstance();
-			cn=DriverManager.getConnection(URL,USERNAME,PASSWORD);
+			cn=DriverManager.getConnection(Config.DB_URL,
+					Config.DB_USERNAME,
+					Config.DB_PASSWORD);
 
 		} catch (SQLException e) {
 			throw e;

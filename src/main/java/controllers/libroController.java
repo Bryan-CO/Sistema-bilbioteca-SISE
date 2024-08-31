@@ -14,7 +14,7 @@ import models.Categoria;
 import models.Editorial;
 import models.Idioma;
 import models.Libro;
-import models.SubGenero;
+import models.Subgenero;
 public class libroController{
 	public static Controller getAll = (req, res) -> {
 	    List<Libro> libros = new LibroDaoImpl().getLibros(); // Fetch books from DAO
@@ -78,7 +78,7 @@ public class libroController{
 	        categoria.setCategoriaId(idCategoria);
 	        libro.setCategoria(categoria);
 
-	        SubGenero subGenero = new SubGenero();
+	        Subgenero subGenero = new Subgenero();
 	        subGenero.setSubgeneroId(idSubgenero);
 	        libro.setSubGenero(subGenero);
 
@@ -174,7 +174,7 @@ public class libroController{
 		        categoria.setCategoriaId(Integer.parseInt(req.getParameter("txtIdCategoria")));
 		        libro.setCategoria(categoria);
 
-		        SubGenero subGenero = new SubGenero();
+		        Subgenero subGenero = new Subgenero();
 		        subGenero.setSubgeneroId(Integer.parseInt(req.getParameter("txtIdSubgenero")));
 		        libro.setSubGenero(subGenero);
 

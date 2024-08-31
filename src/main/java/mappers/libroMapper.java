@@ -10,7 +10,7 @@ import models.Categoria;
 import models.Editorial;
 import models.Idioma;
 import models.Libro;
-import models.SubGenero;
+import models.Subgenero;
 
 public class libroMapper {
 
@@ -45,7 +45,7 @@ public class libroMapper {
 	        categoria.setCategoria(item.get("categoria").toString());
 	        libro.setCategoria(categoria);
 	        
-		    SubGenero subgenero = new SubGenero();
+	        Subgenero subgenero = new Subgenero();
 		    subgenero.setSubgeneroId(Integer.parseInt(item.get("subgenero_id").toString()));
 		    subgenero.setSubgenero(item.get("subgenero").toString());
 		    libro.setSubGenero(subgenero);

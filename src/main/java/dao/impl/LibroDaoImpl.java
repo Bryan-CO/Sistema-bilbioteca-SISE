@@ -14,13 +14,12 @@ import models.Categoria;
 import models.Editorial;
 import models.Idioma;
 import models.Libro;
-import models.SubGenero;
+import models.Subgenero;
 
 public class LibroDaoImpl implements ILibroDao {
 
 	@Override
 	public List<Libro> getLibros() {
-		Connection cn = null;
 		List<Libro> libros = null;
 		try {
 			libros=libroMapper.hashToLibros(Conexion.executeProcedureWithReturn("getlibros"));
@@ -40,15 +39,6 @@ public class LibroDaoImpl implements ILibroDao {
 		} catch (Exception e) {
 			System.out.println(e);
 			libros = null;
-		} finally {
-			try {
-				if (cn != null) {
-					cn.close();
-				}
-
-			} catch (Exception e2) {
-				System.out.println(e2);
-			}
 		}
 		return libros;
 
@@ -81,7 +71,7 @@ public class LibroDaoImpl implements ILibroDao {
 		categoria.setCategoriaId(null); // id_categoria no está en el ResultSet
 		libro.setCategoria(categoria);
 
-		SubGenero subgenero = new SubGenero();
+		Subgenero subgenero = new Subgenero();
 		subgenero.setSubgeneroId(null); // id_subgenero no está en el ResultSet
 		libro.setSubGenero(subgenero);
 
@@ -179,7 +169,7 @@ public class LibroDaoImpl implements ILibroDao {
 					categoria.setCategoriaId(rs.getInt("categoria_id"));
 					libro.setCategoria(categoria);
 
-					SubGenero subGenero = new SubGenero();
+					Subgenero subGenero = new Subgenero();
 					subGenero.setSubgeneroId(rs.getInt("subgenero_id"));
 					libro.setSubGenero(subGenero);
 
