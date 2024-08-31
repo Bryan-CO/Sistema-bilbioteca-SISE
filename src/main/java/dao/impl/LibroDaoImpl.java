@@ -169,7 +169,7 @@ public class LibroDaoImpl implements ILibroDao {
 					categoria.setCategoriaId(rs.getInt("id_categoria"));
 					libro.setCategoria(categoria);
 
-					SubGenero subGenero = new SubGenero();
+					Subgenero subGenero = new Subgenero();
 					subGenero.setSubgeneroId(rs.getInt("id_subgenero"));
 					libro.setSubGenero(subGenero);
 

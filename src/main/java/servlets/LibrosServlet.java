@@ -28,6 +28,6 @@ public class LibrosServlet extends HttpServlet {
     	
     	router.get("/", libroController.getAll);
     	
-        router.get("/:id", libroController.getLibroForEdit);
+        router.get("/:id", libroController.getLibroForId);
     }
 }

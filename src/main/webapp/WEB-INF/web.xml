@@ -28,7 +28,6 @@
   <servlet-mapping>
     <servlet-name>LibrosServlet</servlet-name>
     <url-pattern>/libros/*</url-pattern>
-     <url-pattern></url-pattern>
   </servlet-mapping>
 
   <servlet>
