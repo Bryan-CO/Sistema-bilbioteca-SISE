@@ -7,9 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Listado de libros</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${pageContext.request.contextPath}/views/styles/sidebar.css"
 	rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/views/styles/libros.css"
+<link href="${pageContext.request.contextPath}/views/Libro/styles/libros.css"
 	rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
 	rel="stylesheet" />
@@ -26,16 +27,17 @@
 	</label>
 	<div class="sidebar">
 		<header>Menu</header>
-		<a href="principal.html" class="active"> <i data-feather="home"></i>
+		<a href="${pageContext.request.contextPath}/views/principal.jsp" class="active"> <i data-feather="home"></i>
 			<span>Principal</span>
-		</a> <a href="libros.html"> <i data-feather="book"></i> <span>Libros</span>
-		</a> <a href="herramientas.html"> <i data-feather="tool"></i> <span>Herramientas</span>
-		</a> <a href="clientes.html"> <i data-feather="users"></i> <span>Clientes</span>
-		</a> <a href="prestamos.html"> <i data-feather="dollar-sign"></i> <span>Prestamos</span>
+		</a> <a href="${pageContext.request.contextPath}/libros/"> <i data-feather="book"></i> <span>Libros</span>
+		</a> <a href="#"> <i data-feather="tool"></i> <span>Herramientas</span>
+		</a> <a href="#"> <i data-feather="users"></i> <span>Clientes</span>
+		</a> <a href="#"> <i data-feather="dollar-sign"></i> <span>Prestamos</span>
 		</a>
 	</div>
 	<section class="frame">
 		<main class="contenido">
+			<a href="${pageContext.request.contextPath}/views/Libro/addLibro.jsp" class="button is-link full">Agregar</a>
 			<%
 			List<Libro> listaLibros = (List<Libro>) request.getAttribute("libros");
 			if (listaLibros != null && !listaLibros.isEmpty()) {

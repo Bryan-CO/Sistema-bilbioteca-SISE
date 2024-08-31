@@ -103,7 +103,7 @@ public class libroController{
 		};
 		public static Controller getLibroForId = (req, res) -> {
 	        try {
-	            String idParam = req.getParameter("id");
+	            String idParam = (String)req.getAttribute("urlParamID");
 	            if (idParam == null || idParam.isEmpty()) {
 	                res.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID del libro no proporcionado.");
 	                return;
@@ -119,7 +119,7 @@ public class libroController{
 	            }
 
 	            req.setAttribute("libro", libro);
-	            req.getRequestDispatcher("/views/libros.jsp").forward(req, res);
+	            req.getRequestDispatcher("/views/libro.jsp").forward(req, res);
 
 	        } catch (NumberFormatException e) {
 	            try {

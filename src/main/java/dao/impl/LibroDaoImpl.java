@@ -92,7 +92,7 @@ public class LibroDaoImpl implements ILibroDao {
 			cn = Conexion.getConnection();
 
 			// Preparar la llamada a la función almacenada
-			String sql = "{CALL añadir_libro(?,?,?,?,?,?,?,?,?,?,?)}";
+			String sql = "{CALL addLibro(?,?,?,?,?,?,?,?,?,?,?)}";
 			stmt = cn.prepareCall(sql);
 
 			// Establecer los parámetros
@@ -150,27 +150,27 @@ public class LibroDaoImpl implements ILibroDao {
 					libro.setNombre(rs.getString("nombre"));
 					libro.setAnio(rs.getInt("anio"));
 					libro.setUnidades(rs.getInt("unidades"));
-					libro.setCantidadPaginas(rs.getInt("cantidad_paginas"));
+					libro.setCantidadPaginas(rs.getInt("cant_paginas"));
 
 					// Cargar objetos relacionados
 					Autor autor = new Autor();
-					autor.setAutorId(rs.getInt("autor_id"));
+					autor.setAutorId(rs.getInt("id_autor"));
 					libro.setAutor(autor);
 
 					Idioma idioma = new Idioma();
-					idioma.setIdiomaId(rs.getInt("idioma_id"));
+					idioma.setIdiomaId(rs.getInt("id_idioma"));
 					libro.setIdioma(idioma);
 
 					Editorial editorial = new Editorial();
-					editorial.setEditorialId(rs.getInt("editorial_id"));
+					editorial.setEditorialId(rs.getInt("id_editorial"));
 					libro.setEditorial(editorial);
 
 					Categoria categoria = new Categoria();
-					categoria.setCategoriaId(rs.getInt("categoria_id"));
+					categoria.setCategoriaId(rs.getInt("id_categoria"));
 					libro.setCategoria(categoria);
 
-					Subgenero subGenero = new Subgenero();
-					subGenero.setSubgeneroId(rs.getInt("subgenero_id"));
+					SubGenero subGenero = new SubGenero();
+					subGenero.setSubgeneroId(rs.getInt("id_subgenero"));
 					libro.setSubGenero(subGenero);
 
 					libro.setImagenUrl(rs.getString("imagen_url"));

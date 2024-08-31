@@ -39,7 +39,7 @@ CREATE TABLE Libros (
     serial_number VARCHAR(15) NOT NULL UNIQUE,
     nombre VARCHAR(50) NOT NULL,
     id_autor INT NOT NULL REFERENCES Autores(autor_id),
-    año INT NOT NULL,
+    anio INT NOT NULL,
     id_idioma INT NOT NULL REFERENCES Idiomas(idioma_id),
     id_editorial INT NOT NULL REFERENCES Editoriales(editorial_id),
     id_categoria INT NOT NULL REFERENCES Categorias(categoria_id),

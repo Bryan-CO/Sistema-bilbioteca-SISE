@@ -1,168 +1,165 @@
 @import 'https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css';
 
 * {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 :root {
-	--accent-color: #fff;
-	/* --gradient-color: #fbfbfb; */
-	--bg: #3862fd;
-	--hover: #65d3fe;
-	--fg: #ffffff;
-	--fg-hover: #353535;
+  --accent-color: #fff;
+  /* --gradient-color: #fbfbfb; */
+  --bg: #3862fd;
+  --hover: #65d3fe;
+  --fg: #ffffff;
+  --fg-hover: #353535;
 }
 
 body {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100vw;
-	min-height: 100vh;
-	z-index: -10 !important;
-	background: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: -10 !important;
+  background: white;
 }
 
 .main {
-	display: flex;
-	width: 100%;
-	height: 100%;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .sidebar {
-	position: fixed;
-	width: 240px;
-	left: -240px;
-	min-height: 100vh;
-	background-color: var(--bg);
-	transition: all 0.5s ease;
+  position: fixed;
+  width: 240px;
+  left: -240px;
+  min-height: 100vh;
+  background-color: var(--bg);
+  transition: all 0.5s ease;
 }
 
 .sidebar header {
-	font-size: 28px;
-	color: var(--fg);
-	line-height: 70px;
-	text-align: center;
-	user-select: none;
-	font-family: 'Lato', sans-serif;
+  font-size: 28px;
+  color: var(--fg);
+  line-height: 70px;
+  text-align: center;
+  user-select: none;
+  font-family: 'Lato', sans-serif;
 }
 
 .sidebar a {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	height: 65px;
-	width: 100%;
-	color: var(--fg);
-	line-height: 65px;
-	padding-left: 30px;
-	box-sizing: border-box;
-	border-left: 5px solid transparent;
-	font-family: 'Lato', sans-serif;
-	transition: all 1s ease;
-	font-weight: bold;
-	&
-	svg
-	{
-	height
-	:
-	20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 65px;
+  width: 100%;
+  color: var(--fg);
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-left: 5px solid transparent;
+  font-family: 'Lato', sans-serif;
+  transition: all 1s ease;
+  font-weight: bold;
+
+  & svg {
+    height: 20px;
+  }
 }
 
-}
-a.active, a:hover {
-	border-left: 5px solid var(--fg-hover);
-	color: var(--fg-hover);
-	background: var(--hover);
+a.active,
+a:hover {
+  border-left: 5px solid var(--fg-hover);
+  color: var(--fg-hover);
+  background: var(--hover);
 }
 
 .sidebar a i {
-	font-size: 23px;
-	margin-right: 16px;
+  font-size: 23px;
+  margin-right: 16px;
 }
 
 .sidebar a span {
-	letter-spacing: 1px;
-	text-transform: uppercase;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 #check {
-	display: none;
+  display: none;
 }
 
-label #btn, label #cancel {
-	position: absolute;
-	left: 5px;
-	top: 0px;
-	cursor: pointer;
-	border-radius: 5px;
-	margin: 15px 30px;
-	font-size: 29px;
-	height: 45px;
-	width: 45px;
-	text-align: center;
-	text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
-	line-height: 45px;
-	transition: all 0.5s ease;
+label #btn,
+label #cancel {
+  position: fixed;
+  left: 5px;
+  top: 0px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 15px 30px;
+  font-size: 29px;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+  line-height: 45px;
+  transition: all 0.5s ease;
 }
 
 label #cancel {
-	opacity: 0;
-	visibility: hidden;
-	color: var(--fg-hover);
+  opacity: 0;
+  visibility: hidden;
+  color: var(--fg-hover);
 }
 
 label #btn {
-	color: var(--fg-hover);
+  color: var(--fg-hover);
 }
 
 #check:checked ~ .sidebar {
-	left: 0;
+  left: 0;
 }
 
 #check:checked ~ label #btn {
-	margin-left: 245px;
-	opacity: 0;
-	visibility: hidden;
+  margin-left: 245px;
+  opacity: 0;
+  visibility: hidden;
 }
 
 #check:checked ~ label #cancel {
-	margin-left: 245px;
-	opacity: 1;
-	visibility: visible;
+  margin-left: 245px;
+  opacity: 1;
+  visibility: visible;
 }
 
-label #btn, label #cancel {
-	height: 30px;
-	color: #9696ad;
+label #btn,
+label #cancel {
+  height: 30px;
+  color: #9696ad;
 }
 
 #check:checked ~ .frame {
-	width: calc(100% - 240px);
-	right: 0px;
-	z-index: -1;
+  width: calc(100% - 240px);
+  right: 0px;
+  z-index: -1;
 }
 
 .frame {
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 100%;
-	min-height: 100vh;
-	margin: auto;
-	text-align: center;
-	z-index: -1;
-	transition: ease 0.5s all;
-	background: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 4% 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  text-align: center;
+  z-index: -1;
+  transition: ease 0.5s all;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4% 0;
 }
-
-
-
