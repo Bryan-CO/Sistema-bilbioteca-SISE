@@ -20,7 +20,7 @@ public class libroController{
 	    List<Libro> libros = new LibroDaoImpl().getLibros(); // Fetch books from DAO
 	    req.setAttribute("libros", libros); // Set attribute for JSP
 
-	    RequestDispatcher rq = req.getRequestDispatcher("/views/libros.jsp");
+	    RequestDispatcher rq = req.getRequestDispatcher("/views/pruebas.jsp");
 	    try {
 	        rq.forward(req, res);
 	    } catch (ServletException e) {
@@ -101,7 +101,7 @@ public class libroController{
 	        }
 	    }
 		};
-		public static Controller getLibroForEdit = (req, res) -> {
+		public static Controller getLibroForId = (req, res) -> {
 	        try {
 	            String idParam = req.getParameter("id");
 	            if (idParam == null || idParam.isEmpty()) {
@@ -111,7 +111,7 @@ public class libroController{
 	            int id = Integer.parseInt(idParam);
 
 	            LibroDaoImpl libroDao = new LibroDaoImpl();
-	            Libro libro = libroDao.getLibroForEdit(id);
+	            Libro libro = libroDao.getLibroForId(id);
 
 	            if (libro == null) {
 	                res.sendError(HttpServletResponse.SC_NOT_FOUND, "Libro no encontrado.");
@@ -144,7 +144,7 @@ public class libroController{
 
 		        // Check if book exists
 		        LibroDaoImpl libroDao = new LibroDaoImpl();
-		        Libro existingLibro = libroDao.getLibroForEdit(id);
+		        Libro existingLibro = libroDao.getLibroForId(id);
 		        if (existingLibro == null) {
 		            res.sendError(HttpServletResponse.SC_NOT_FOUND, "Libro no encontrado.");
 		            return;

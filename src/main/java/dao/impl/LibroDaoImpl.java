@@ -5,11 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-
 import config.Conexion;
 import dao.ILibroDao;
+import mappers.libroMapper;
 import models.Autor;
 import models.Categoria;
 import models.Editorial;
@@ -24,7 +23,9 @@ public class LibroDaoImpl implements ILibroDao {
 		Connection cn = null;
 		List<Libro> libros = null;
 		try {
-			cn = Conexion.getConnection();
+			libros=libroMapper.hashToLibros(Conexion.executeProcedureWithReturn("getlibros"));
+			
+			/*cn = Conexion.getConnection();
 			String sql = "SELECT * FROM getLibros()";
 			PreparedStatement psmt = cn.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
@@ -35,7 +36,7 @@ public class LibroDaoImpl implements ILibroDao {
 			}
 			rs.close();
 			psmt.close();
-
+/*/
 		} catch (Exception e) {
 			System.out.println(e);
 			libros = null;
@@ -64,10 +65,10 @@ public class LibroDaoImpl implements ILibroDao {
 		// Mapeo de Autor
 		Autor autor = new Autor();
 		autor.setAutorId(null); // id_autor no está en el ResultSet
-		autor.setAutor(rs.getString("autor")); // El nombre del autor está disponible
+		autor.setAutor(null); // El nombre del autor está disponible
 		libro.setAutor(autor);
 
-		// Mapeo de Idioma, Editorial, Categoría, Subgénero, etc.
+		
 		Idioma idioma = new Idioma();
 		idioma.setIdiomaId(null); // id_idioma no está en el ResultSet
 		libro.setIdioma(idioma);
@@ -95,11 +96,9 @@ public class LibroDaoImpl implements ILibroDao {
 
 	@Override
 	public void addLibro(Libro libro) {
-		Connection cn = null;
-		CallableStatement stmt = null;
-		System.out.println("Entrando agregar");
+	
 		try {
-			// Obtener la conexión
+		/*	// Obtener la conexión
 			cn = Conexion.getConnection();
 
 			// Preparar la llamada a la función almacenada
@@ -123,30 +122,33 @@ public class LibroDaoImpl implements ILibroDao {
 			stmt.executeUpdate();
 
 			System.out.println("Libro añadido correctamente");
-
+/*/
+			Conexion.executeProcedure("añadir_libro" , new Object[] {
+					libro.getSerialNumber(),
+					libro.getNombre(),
+					libro.getAutor().getAutorId(),
+					libro.getAnio(),
+					 libro.getIdioma().getIdiomaId() ,
+					libro.getEditorial().getEditorialId(),
+					libro.getCategoria().getCategoriaId(),
+					libro.getSubGenero().getSubgeneroId(),
+					libro.getUnidades(),
+					libro.getCantidadPaginas(),
+					libro.getImagenUrl()
+			});
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Error al añadir el libro: " + e.getMessage());
 
-		} finally {
-			// Cerrar los recursos
-			try {
-				if (stmt != null)
-					stmt.close();
-				if (cn != null)
-					cn.close();
-			} catch (SQLException e2) {
-				e2.printStackTrace();
-			}
 		}
-
 	}
 
-	public Libro getLibroForEdit(int id) {
+	public Libro getLibroForId(int id) {
 		Libro libro = null;
-		String sql = "SELECT * FROM libros WHERE libro_id = ?";
+		String sql ="{ ? = call obtener_libro_por_id(?) }";
 
-		try (Connection conn = Conexion.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    try (Connection conn = Conexion.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
 			pstmt.setInt(1, id);
 
@@ -240,4 +242,36 @@ public class LibroDaoImpl implements ILibroDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public Libro getLibroForId(Integer id) {
+	    Connection cn = null;
+	    Libro libro = null;
+	    try {
+	        cn = Conexion.getConnection();
+	        String sql = "{ ? = call obtener_libro_por_id(?) }";
+	        
+	        PreparedStatement pstm = cn.prepareStatement(sql);
+	        pstm.setInt(1, id);
+	        ResultSet rs = pstm.executeQuery();
+	        
+	        if (rs.next()) {
+	            libro = ResultSetToObject(rs);
+	        }
+	        rs.close();
+	        pstm.close();
+	    } catch (Exception e) {
+	        System.out.println(e);
+	        libro = null;
+	    } finally {
+	        try {
+	            if (cn != null) {
+	                cn.close();
+	            }
+	        } catch (Exception e2) {
+	            System.out.println(e2);
+	        }
+	    }
+	    return libro;
+	}
+
 }

@@ -9,4 +9,5 @@ public interface ICategoriaDao {
 	public void addCategoria();
 	public List<Categoria>getCategoria();
 	 void addCategoria(Categoria categoria);
+	 Categoria getCategoria(Integer categoriaId);
 }

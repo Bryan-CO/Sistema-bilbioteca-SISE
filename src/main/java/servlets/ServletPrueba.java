@@ -2,9 +2,7 @@ package servlets;
 
 import java.io.IOException;
 
-import controllers.autorController;
-import controllers.categoriaController;
-import controllers.idiomaController;
+
 import controllers.libroController;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -36,7 +34,7 @@ public class ServletPrueba extends HttpServlet {
         router.get("/libros", libroController.getAll);
         router.post("/oli", libroController.addLibro);
         router.get("/oli/:id", libroController.getById);
-        router.get("/edit/:id", libroController.getLibroForEdit); // Cargar el libro para editar
+        router.get("/libros/:id", libroController.getLibroForId);// Cargar el libro para editar
         router.put("/edit", libroController.editLibro); 
      // Rutas para API
         router.get("/api/libros", libroController.getAllApi);
@@ -44,18 +42,12 @@ public class ServletPrueba extends HttpServlet {
         
         // autor
        
-        router.get("/autor", autorController.getAll); // Obtener todos los autores
-        router.post("/autor", autorController.addAutor);
+   
         
         // idioma 
         
-        router.get("/idioma",idiomaController.getAll);
-        router.post("/idioma", idiomaController.addIdioma);
-        
-        //categoria
-        router.get("/categoria",categoriaController.getAll);
-        
-    }
+      
 
+}
 }
 
