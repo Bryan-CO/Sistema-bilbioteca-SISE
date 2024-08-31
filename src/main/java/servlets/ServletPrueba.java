@@ -9,6 +9,7 @@ import util.*;
 
 import java.io.IOException;
 
+import controllers.AutorController;
 import controllers.libroController;
 
 /**
@@ -30,8 +31,8 @@ public class ServletPrueba extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	router = new Router(request, response);
     	
-        router.get("/", libroController.getAll);
-        router.get("/libros", libroController.getAll);
+        router.get("/", AutorController.addAutor);
+        router.get("/libros", AutorController.getAutores);
         router.get("/oli/:id", libroController.getAll);
         router.post("/oli", libroController.getAll);
         

@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>HerramientasServlet</display-name>
+    <servlet-name>HerramientasServlet</servlet-name>
+    <servlet-class>servlets.HerramientasServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HerramientasServlet</servlet-name>
+    <url-pattern>/HerramientasServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
