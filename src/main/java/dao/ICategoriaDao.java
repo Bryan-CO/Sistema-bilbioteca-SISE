@@ -2,12 +2,9 @@ package dao;
 
 import java.util.List;
 
-
 import models.Categoria;
 
 public interface ICategoriaDao {
-	public void addCategoria();
-	public List<Categoria>getCategoria();
-	 void addCategoria(Categoria categoria);
-	 Categoria getCategoria(Integer categoriaId);
+	public void addCategoria(String categoria);
+	public List<Categoria> getCategorias();
 }

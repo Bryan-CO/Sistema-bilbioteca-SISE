@@ -30,4 +30,15 @@
     <url-pattern>/libros/*</url-pattern>
      <url-pattern></url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <description></description>
+    <display-name>HerramientasServlet</display-name>
+    <servlet-name>HerramientasServlet</servlet-name>
+    <servlet-class>servlets.HerramientasServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HerramientasServlet</servlet-name>
+    <url-pattern>/HerramientasServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,6 +1,9 @@
 package dao;
-import models.SubGenero;
+
+import java.util.List;
+import models.Subgenero;
+
 public interface ISubgeneroDao {
-	public void addSubgenero();
-	SubGenero getSubgenero(Integer subgeneroId);
+	public void addSubgenero(String subgenero);
+	public List<Subgenero> getSubgeneros();
 }

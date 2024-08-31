@@ -14,9 +14,9 @@ import java.util.Map;
 public class Conexion {
 
 	private final static String DRIVER_CLASS_NAME ="org.postgresql.Driver";
-	private final static String URL ="jdbc:postgresql://localhost/biblioteca_owo";
+	private final static String URL ="jdbc:postgresql://localhost/sistema_biblioteca";
 	private final static String USERNAME="postgres";
-	private final static String PASSWORD="@arango@12";
+	private final static String PASSWORD="godofwar12345";
 	
 	
 	private Conexion() {
@@ -146,4 +146,3 @@ public class Conexion {
 
 	}
 }
-
