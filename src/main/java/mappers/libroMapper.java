@@ -50,7 +50,7 @@ public class libroMapper {
 		    subgenero.setSubgenero(item.get("subgenero").toString());
 		    libro.setSubGenero(subgenero);
 
-			libro.setAnio((Integer) item.get("año"));
+			libro.setAnio((Integer) item.get("anio"));
 			libro.setUnidades((Integer) item.get("unidades"));
 			libro.setCantidadPaginas((Integer) item.get("cant_paginas"));
 			libro.setImagenUrl((String) item.get("imagen_url"));
