@@ -6,8 +6,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
-    <link href="styles/sidebar.css" rel="stylesheet" />
-    <link href="styles/principal.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/views/styles/sidebar.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/views/styles/principal.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
       rel="stylesheet"
@@ -68,7 +68,7 @@
           <div class="card-image">
             <figure class="image is-4by3">
               <img
-                src="./img/book.jpg"
+                src="${pageContext.request.contextPath}/views/img/book.jpg"
                 alt="Placeholder image"
               />
             </figure>

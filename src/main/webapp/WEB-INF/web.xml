@@ -29,7 +29,6 @@
     <servlet-name>LibrosServlet</servlet-name>
     <url-pattern>/libros/*</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description></description>
     <display-name>HerramientasServlet</display-name>
@@ -39,5 +38,15 @@
   <servlet-mapping>
     <servlet-name>HerramientasServlet</servlet-name>
     <url-pattern>/HerramientasServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Home</display-name>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>servlets.Home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/Home</url-pattern>
   </servlet-mapping>
 </web-app>
