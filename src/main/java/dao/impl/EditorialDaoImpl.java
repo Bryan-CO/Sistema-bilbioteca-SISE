@@ -12,7 +12,7 @@ public class EditorialDaoImpl implements IEditorialDao {
 	@Override
 	public void addEditorial(String editorial) {
 		try {
-			Conexion.executeProcedure("addEditorial", new Object[] {"El comercio"});
+			Conexion.executeProcedure("addEditorial", new Object[] {editorial});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

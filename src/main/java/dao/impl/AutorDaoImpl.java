@@ -16,7 +16,7 @@ public class AutorDaoImpl implements IAutorDao {
 	@Override
 	public void addAutor(String autor) {
 	    try {
-	    	Conexion.executeProcedure("insertar_autor", new Object[] {"UwU"});
+	    	Conexion.executeProcedure("insertar_autor", new Object[] {autor});
 	    } catch (SQLException e) {
 	        System.err.println("Database error occurred: " + e.getMessage());
 	        e.printStackTrace();

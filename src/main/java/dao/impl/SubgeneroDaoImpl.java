@@ -12,7 +12,7 @@ public class SubgeneroDaoImpl implements ISubgeneroDao {
 	@Override
 	public void addSubgenero(String subgenero) {
 		try {
-			Conexion.executeProcedure("addsubgenero");
+			Conexion.executeProcedure("addsubgenero", new Object[] {subgenero});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

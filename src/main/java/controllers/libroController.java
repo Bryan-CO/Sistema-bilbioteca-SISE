@@ -20,7 +20,7 @@ public class libroController{
 	    List<Libro> libros = new LibroDaoImpl().getLibros(); // Fetch books from DAO
 	    req.setAttribute("libros", libros); // Set attribute for JSP
 
-	    RequestDispatcher rq = req.getRequestDispatcher("/views/pruebas.jsp");
+	    RequestDispatcher rq = req.getRequestDispatcher("/views/Libro/libros.jsp");
 	    try {
 	        rq.forward(req, res);
 	    } catch (ServletException e) {
@@ -31,7 +31,7 @@ public class libroController{
 	};
 	
 	public static Controller getById = (req, res) -> {
-		RequestDispatcher rq = req.getRequestDispatcher("/views/libros.jsp");
+		RequestDispatcher rq = req.getRequestDispatcher("/views/Libro/libro.jsp");
 		try {
 			rq.forward(req, res);
 		} catch (ServletException e) {

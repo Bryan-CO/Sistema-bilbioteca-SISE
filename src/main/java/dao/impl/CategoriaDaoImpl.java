@@ -13,7 +13,7 @@ public class CategoriaDaoImpl implements ICategoriaDao{
 	@Override
 	public void addCategoria(String categoria) {
 		try {
-			Conexion.executeProcedure("addCategoria", new Object[] {"Filosofía"});
+			Conexion.executeProcedure("addCategoria", new Object[] {categoria});
 		} catch (SQLException e) {
 			System.err.println("Database error occurred: " + e.getMessage());
 			e.printStackTrace();

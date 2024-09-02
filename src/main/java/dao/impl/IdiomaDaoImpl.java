@@ -12,7 +12,7 @@ public class IdiomaDaoImpl implements IIdiomaDao {
 	@Override
 	public void addIdioma(String idioma) {
 		try {
-			Conexion.executeProcedure("addidioma");
+			Conexion.executeProcedure("addidioma", new Object[] {idioma});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
