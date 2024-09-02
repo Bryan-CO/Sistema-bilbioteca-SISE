@@ -11,8 +11,8 @@ public class categoriaMapper {
 		List<Categoria> categorias = new ArrayList<>();
 		lista.forEach(item -> {
 			Categoria cat = new Categoria();
-			cat.setCategoriaId(Integer.parseInt(item.get("categoria_id").toString()));
-			cat.setCategoria(item.get("categoria").toString());
+			cat.setCategoriaId(Integer.parseInt(item.get("idcategoria").toString()));
+			cat.setCategoria(item.get("nombre").toString());
 			categorias.add(cat);
 		});
 		return categorias;

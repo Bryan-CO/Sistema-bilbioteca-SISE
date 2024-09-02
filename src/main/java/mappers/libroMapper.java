@@ -18,42 +18,42 @@ public class libroMapper {
 		List<Libro> libros = new ArrayList<>();
 		for (Map<String, Object> item : lista) {
 			Libro libro = new Libro();
-			libro.setLibroId((Integer) item.get("libro_id"));
-			libro.setSerialNumber((String) item.get("serial_number"));
+			libro.setLibroId((Integer) item.get("idlibro"));
+			libro.setSerialNumber((String) item.get("serialnumber"));
 			libro.setNombre((String) item.get("nombre"));
 			
 			Autor autor = new Autor();
-			autor.setAutorId(Integer.parseInt(item.get("autor_id").toString()));
+			autor.setAutorId(Integer.parseInt(item.get("idautor").toString()));
 			autor.setAutor(item.get("autor").toString());
 	        libro.setAutor(autor);
 			
 	        
 	        Idioma idioma = new Idioma();
-	        idioma.setIdiomaId(Integer.parseInt(item.get("idioma_id").toString()));
+	        idioma.setIdiomaId(Integer.parseInt(item.get("ididioma").toString()));
 	        idioma.setIdioma(item.get("idioma").toString());
 	        libro.setIdioma(idioma);
 	        
 	        
 	        Editorial editorial = new Editorial();
-	        editorial.setEditorialId(Integer.parseInt(item.get("editorial_id").toString()));
+	        editorial.setEditorialId(Integer.parseInt(item.get("ideditorial").toString()));
 	        editorial.setEditorial(item.get("editorial").toString());
 	        libro.setEditorial(editorial);
 	        
 	        
 	        Categoria categoria = new Categoria();
-	        categoria.setCategoriaId(Integer.parseInt(item.get("categoria_id").toString()));
+	        categoria.setCategoriaId(Integer.parseInt(item.get("idcategoria").toString()));
 	        categoria.setCategoria(item.get("categoria").toString());
 	        libro.setCategoria(categoria);
 	        
 	        Subgenero subgenero = new Subgenero();
-		    subgenero.setSubgeneroId(Integer.parseInt(item.get("subgenero_id").toString()));
+		    subgenero.setSubgeneroId(Integer.parseInt(item.get("idsubgenero").toString()));
 		    subgenero.setSubgenero(item.get("subgenero").toString());
 		    libro.setSubGenero(subgenero);
 
 			libro.setAnio((Integer) item.get("anio"));
 			libro.setUnidades((Integer) item.get("unidades"));
-			libro.setCantidadPaginas((Integer) item.get("cant_paginas"));
-			libro.setImagenUrl((String) item.get("imagen_url"));
+			libro.setCantidadPaginas((Integer) item.get("cantpaginas"));
+			libro.setImagenUrl((String) item.get("urlimagen"));
 
 			libros.add(libro);
 		}

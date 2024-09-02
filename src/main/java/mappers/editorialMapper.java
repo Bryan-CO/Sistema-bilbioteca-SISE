@@ -10,8 +10,8 @@ public class editorialMapper {
 		List<Editorial> editoriales = new ArrayList<>();
 		lista.forEach(item ->{
 			Editorial edi = new Editorial();
-			edi.setEditorialId(Integer.parseInt(item.get("editorial_id").toString()));
-			edi.setEditorial(item.get("editorial").toString());
+			edi.setEditorialId(Integer.parseInt(item.get("ideditorial").toString()));
+			edi.setEditorial(item.get("nombre").toString());
 			
 			editoriales.add(edi);
 		});

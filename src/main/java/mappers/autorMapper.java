@@ -9,8 +9,8 @@ public class autorMapper {
 		List<Autor> autores = new ArrayList<>();
 		lista.forEach(item -> {
 			Autor autor = new Autor();
-			autor.setAutor(item.get("autor").toString());
-			autor.setAutorId(Integer.parseInt(item.get("autor_id").toString()));
+			autor.setAutor(item.get("nombre").toString());
+			autor.setAutorId(Integer.parseInt(item.get("idautor").toString()));
 			
 			autores.add(autor);
 		});

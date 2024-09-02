@@ -10,8 +10,8 @@ public class subgeneroMapper {
 		List<Subgenero> subgeneros = new ArrayList<>();
 		lista.forEach( item ->{
 			Subgenero sub = new Subgenero();
-			sub.setSubgeneroId(Integer.parseInt(item.get("subgenero_id").toString()));
-			sub.setSubgenero(item.get("subgenero").toString());
+			sub.setSubgeneroId(Integer.parseInt(item.get("idsubgenero").toString()));
+			sub.setSubgenero(item.get("nombre").toString());
 			
 			subgeneros.add(sub);
 		});

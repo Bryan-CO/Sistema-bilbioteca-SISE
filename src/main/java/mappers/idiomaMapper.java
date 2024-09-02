@@ -10,8 +10,8 @@ public class idiomaMapper {
 		List<Idioma> idiomas = new ArrayList<>();
 		lista.forEach(item->{
 			Idioma idi = new Idioma();
-			idi.setIdiomaId(Integer.parseInt(item.get("idioma_id").toString()));
-			idi.setIdioma(item.get("idioma").toString());
+			idi.setIdiomaId(Integer.parseInt(item.get("ididioma").toString()));
+			idi.setIdioma(item.get("nombre").toString());
 			
 			idiomas.add(idi);
 		});
