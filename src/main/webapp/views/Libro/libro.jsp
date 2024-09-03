@@ -5,7 +5,7 @@
 Libro lib = (Libro) request.getAttribute("libro");
 %>
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
 <head>
 <meta charset="UTF-8">
 <title>Detalle: <%=lib.getNombre()%></title>
@@ -101,9 +101,9 @@ Libro lib = (Libro) request.getAttribute("libro");
 								value="<%=lib.getCantidadPaginas()%>">
 						</div>
 					</div>
-					
+
 					<div></div>
-					
+
 					<div class="field btn">
 						<a href="${pageContext.request.contextPath}/libros/" class="button is-link">Regresar</a>
 					</div>

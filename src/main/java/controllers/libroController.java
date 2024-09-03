@@ -4,7 +4,12 @@ package controllers;
 import java.io.IOException;
 import java.util.List;
 
+import dao.impl.AutorDaoImpl;
+import dao.impl.CategoriaDaoImpl;
+import dao.impl.EditorialDaoImpl;
+import dao.impl.IdiomaDaoImpl;
 import dao.impl.LibroDaoImpl;
+import dao.impl.SubgeneroDaoImpl;
 import interfaces.Controller;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -29,7 +34,7 @@ public class libroController{
 	        e.printStackTrace();
 	    }
 	};
-	
+
 	public static Controller getById = (req, res) -> {
 		RequestDispatcher rq = req.getRequestDispatcher("/views/Libro/libro.jsp");
 		try {
@@ -40,7 +45,7 @@ public class libroController{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("Get by ID");
 	};
 	public static Controller addLibro = (req, res) -> {
@@ -90,7 +95,7 @@ public class libroController{
 	        LibroDaoImpl libroDao = new LibroDaoImpl();
 	        libroDao.addLibro(libro);
 
-	        res.sendRedirect(req.getContextPath() + "/biblioteca/libros");
+	        res.sendRedirect(req.getContextPath() + "/libros/");
 
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -119,7 +124,7 @@ public class libroController{
 	            }
 
 	            req.setAttribute("libro", libro);
-	            req.getRequestDispatcher("/views/libro.jsp").forward(req, res);
+	            req.getRequestDispatcher("/views/Libro/libro.jsp").forward(req, res);
 
 	        } catch (NumberFormatException e) {
 	            try {
@@ -196,18 +201,18 @@ public class libroController{
 		        } catch (IOException e1) {
 		            e1.printStackTrace();
 		        }
-		  
+
 		    }
 		};
-	
-	
+
+
 	public static Controller getAllApi = (req, res) -> {
         // Ejemplo de datos en JSON
 	    res.setContentType("application/json");
 	    res.setCharacterEncoding("UTF-8");
 	    String jsonResponse = "[{\"name\":\"uwu\"},{\"name\":\"oli\"}]";
 	    System.out.println(jsonResponse);
-	    
+
         try {
 			res.getWriter().write(jsonResponse);
 		} catch (IOException e) {
@@ -215,5 +220,28 @@ public class libroController{
 			e.printStackTrace();
 		}
     };
-    
+
+	public static Controller viewAdd = (req, res) -> {
+		List<Autor> autores = new AutorDaoImpl().getAutores();
+		List<Categoria> categorias = new CategoriaDaoImpl().getCategorias();
+		List<Editorial> editoriales = new EditorialDaoImpl().getEditoriales();
+		List<Idioma> idiomas = new IdiomaDaoImpl().getIdiomas();
+		List<Subgenero> subgeneros = new SubgeneroDaoImpl().getSubgeneros();
+		
+	    req.setAttribute("autores", autores);
+	    req.setAttribute("categorias", categorias);
+	    req.setAttribute("editoriales", editoriales);
+	    req.setAttribute("idiomas", idiomas);
+	    req.setAttribute("subgeneros", subgeneros);
+		
+		RequestDispatcher rq = req.getRequestDispatcher("/views/Libro/addLibro.jsp");
+		try {
+			rq.forward(req,res);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	};
+
 }

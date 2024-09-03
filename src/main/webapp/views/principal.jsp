@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
-<html lang="en">
+<html data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,7 +41,7 @@
     </label>
     <div class="sidebar">
       <header>Menu</header>
-      <a href="${pageContext.request.contextPath}/views/principal.jsp" class="active">
+      <a href="${pageContext.request.contextPath}/home/" class="active">
         <i data-feather="home"></i>
         <span>Principal</span>
       </a>
@@ -49,7 +49,7 @@
         <i data-feather="book"></i>
         <span>Libros</span>
       </a>
-      <a href="#">
+      <a href="${pageContext.request.contextPath}/herramientas/">
         <i data-feather="tool"></i>
         <span>Herramientas</span>
       </a>

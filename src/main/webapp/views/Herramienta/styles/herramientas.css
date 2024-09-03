@@ -1,0 +1,27 @@
+.contenido {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 40%);
+  column-gap: 10%;
+  row-gap: 30px;
+}
+
+tr,
+td {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+}

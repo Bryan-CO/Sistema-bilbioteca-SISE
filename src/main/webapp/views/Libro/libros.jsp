@@ -3,7 +3,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="models.Libro"%>
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
 <head>
 <meta charset="UTF-8">
 <title>Listado de libros</title>
@@ -27,37 +27,38 @@
 	</label>
 	<div class="sidebar">
 		<header>Menu</header>
-		<a href="${pageContext.request.contextPath}/views/principal.jsp" class="active"> <i data-feather="home"></i>
+		<a href="${pageContext.request.contextPath}/home/"> <i data-feather="home"></i>
 			<span>Principal</span>
-		</a> <a href="${pageContext.request.contextPath}/libros/"> <i data-feather="book"></i> <span>Libros</span>
-		</a> <a href="#"> <i data-feather="tool"></i> <span>Herramientas</span>
+		</a> <a href="${pageContext.request.contextPath}/libros/" class="active"> <i data-feather="book"></i> <span>Libros</span>
+		</a> <a href="${pageContext.request.contextPath}/herramientas/"> <i data-feather="tool"></i> <span>Herramientas</span>
 		</a> <a href="#"> <i data-feather="users"></i> <span>Clientes</span>
 		</a> <a href="#"> <i data-feather="dollar-sign"></i> <span>Prestamos</span>
 		</a>
 	</div>
 	<section class="frame">
 		<main class="contenido">
-			<a href="${pageContext.request.contextPath}/views/Libro/addLibro.jsp" class="button is-link full">Agregar</a>
+			<a href="${pageContext.request.contextPath}/libros/new" class="button is-link full">Agregar</a>
 			<%
 			List<Libro> listaLibros = (List<Libro>) request.getAttribute("libros");
 			if (listaLibros != null && !listaLibros.isEmpty()) {
 				for (Libro lib : listaLibros) {
 			%>
 			<div class="card has-background-grey-lighter has-text-link-dark">
-				<div class="card-image">
-					<figure class="image is-3by4">
-						<img src="<%=lib.getImagenUrl()%>"
-							alt="Portada de <%=lib.getNombre()%>"
-							style="object-fit: cover; width: 100%; height: 100%;" />
-					</figure>
-				</div>
 				<a
-					href="${pageContext.request.contextPath}/libros/<%=lib.getLibroId()%>"
-					class="card-content">
-					<div class="media">
-						<div class="media-content">
-							<p class="title is-4 has-text-grey"><%=lib.getNombre()%></p>
-							<p class="subtitle is-5"><%=lib.getAutor().getAutor()%></p>
+					href="${pageContext.request.contextPath}/libros/<%=lib.getLibroId()%>">
+					<div class="card-image">
+						<figure class="image is-3by4">
+							<img src="<%=lib.getImagenUrl()%>"
+								alt="Portada de <%=lib.getNombre()%>"
+								style="object-fit: cover; width: 100%; height: 100%;" />
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="media">
+							<div class="media-content">
+								<p class="title is-4 has-text-grey"><%=lib.getNombre()%></p>
+								<p class="subtitle is-5"><%=lib.getAutor().getAutor()%></p>
+							</div>
 						</div>
 					</div>
 				</a>

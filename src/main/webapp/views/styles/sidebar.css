@@ -71,8 +71,8 @@ body {
   }
 }
 
-a.active,
-a:hover {
+.sidebar a.active,
+.sidebar a:hover {
   border-left: 5px solid var(--fg-hover);
   color: var(--fg-hover);
   background: var(--hover);

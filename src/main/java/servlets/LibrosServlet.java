@@ -27,7 +27,9 @@ public class LibrosServlet extends HttpServlet {
     	router = new Router(request, response);
     	
     	router.get("/", libroController.getAll);
-    	
+    	router.get("/new", libroController.viewAdd);
         router.get("/:id", libroController.getLibroForId);
+        
+        router.post("/", libroController.addLibro);
     }
 }

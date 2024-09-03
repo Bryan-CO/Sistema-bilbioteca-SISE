@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@page import="models.Libro"%>
 <%@page import="java.util.List"%>
-<html>
+<html data-theme="light">
 <head>
     <title>Libros</title>
  <link
@@ -11,7 +11,7 @@
     crossorigin="anonymous">
 </head>
 
- 
+
 
 <body style="background-color: #fff">
   <div class="container mt-5">
@@ -30,13 +30,13 @@
                             <h5 class="card-title">Nombre del Libro :<%= libro.getNombre() %></h5>
                             <p class="card-text">Autor: <%= libro.getAutor().getAutor() %></p>
                             <p class="card-text">: <%= libro.getCantidadPaginas() %></p>
-                           
+
                             <!--  a href="sucursales/reservas/ sucursal.getId() " class="btn btn-primary">Hacer Reserva</a-->
                         </div>
                </div>
                </a>
            </div>
-           <% 
+           <%
        }
    } else {
        %>
